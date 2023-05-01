@@ -12,6 +12,7 @@ import (
 
 type APIServer struct {
 	listenAddress string
+	store Storage
 }
 
 type apiFunc func(w http.ResponseWriter, r *http.Request) error
