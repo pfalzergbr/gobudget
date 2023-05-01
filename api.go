@@ -12,7 +12,7 @@ import (
 
 type APIServer struct {
 	listenAddress string
-	store Storage
+	Store Storage
 }
 
 type apiFunc func(w http.ResponseWriter, r *http.Request) error
@@ -37,8 +37,15 @@ func WriteJSON(w http.ResponseWriter, status int, payload any) error {
 }
 
 func NewAPIServer(listenAddress string) *APIServer {
+  // storage, err := NewPostgresStore()
+
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+
 	return &APIServer{
 		listenAddress: listenAddress,
+		// store: storage,
 	}
 }
 
